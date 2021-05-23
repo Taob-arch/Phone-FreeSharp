@@ -176,7 +176,17 @@ namespace Phone_freesharp
             }else if (choice == ConsoleKey.D4)
             {
                 Console.Clear();
-                Console.Write("Just don't use this lmao");
+                foreach (String Command in Data.firewallconfig)
+                {
+                    Process.Start("CMD.exe", Command);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("\n[Firewall] ");
+                    Console.ResetColor();
+                    Console.Write("Executed ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("[" + Command + "]\n");
+                    Console.ResetColor();
+                }
                 Console.ReadKey();
                 Main();
             }
